@@ -2,6 +2,7 @@ import boto3
 
 client = boto3.client('ec2')
 ec2 = boto3.resource('ec2')
+
 def lambda_handler(event, context):
     print(str(event))
     if 'items' not in event['detail']['requestParameters']['ipPermissions']:
