@@ -28,7 +28,7 @@ def lambda_handler(event, context):
                             ToPort = 0 if item['ipProtocol'] == '-1' else item['toPort'],
                             FromPort= 0 if item['ipProtocol'] == '-1' else item['fromPort']
                             )
-                        print(f'Removed Insecured Security Group rule In SG with ID {sgGroupId}')
+                        print(f'Removed Insecured Security Group rule(IPV4) In SG with ID {sgGroupId}')
                       
             # Check IPV6
             if 'items' in item['ipv6Ranges']:
@@ -51,4 +51,4 @@ def lambda_handler(event, context):
                                 }
                             ]
                         )
-                        print(f'Removed Insecured Security Group rule In SG with ID {sgGroupId}')
+                        print(f'Removed Insecured Security Group rule(IPV6) In SG with ID {sgGroupId}')
