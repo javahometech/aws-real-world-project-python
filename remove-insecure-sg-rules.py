@@ -5,9 +5,6 @@ ec2 = boto3.resource('ec2')
 
 def lambda_handler(event, context):
     print(str(event))
-    if 'items' not in event['detail']['requestParameters']['ipPermissions']:
-        print("Main Items not present")
-        return
     items = event['detail']['requestParameters']['ipPermissions']['items']
     sgGroupId = event['detail']['requestParameters']['groupId']
     sg = ec2.SecurityGroup(sgGroupId)
