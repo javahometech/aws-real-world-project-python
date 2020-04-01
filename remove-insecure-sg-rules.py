@@ -12,9 +12,8 @@ def lambda_handler(event, context):
     sgGroupId = event['detail']['requestParameters']['groupId']
     sg = ec2.SecurityGroup(sgGroupId)
     
-    
+    # Get all security group rules of IPV4 and IPV6
     for item in items:
-        
         
         if item['ipProtocol'] == '-1' or item['fromPort'] == 22 or item['toPort'] == 22:
             # Check IPV4
